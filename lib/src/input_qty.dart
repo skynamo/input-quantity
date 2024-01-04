@@ -78,6 +78,12 @@ class InputQty extends StatefulWidget {
   /// this value will use to limit number of decimal places
   final int decimalPlaces;
 
+
+  ///You can change the icons for the plus and minus by setting the following variables.
+  ///
+  final IconData? plusIcon;
+  final IconData? minusIcon;
+
   /// Widget to handle quantity input
   ///
   /// for specific output, use `InputQty.int` or
@@ -91,6 +97,8 @@ class InputQty extends StatefulWidget {
     this.steps = 1,
     this.decimalPlaces = 18,
     this.onQtyChanged,
+    this.plusIcon,
+    this.minusIcon,
     this.messageBuilder,
     this.validator,
     this.decoration = const QtyDecorationProps(),
@@ -128,6 +136,8 @@ class InputQty extends StatefulWidget {
     this.steps = 1.0,
     this.decimalPlaces = 18,
     this.onQtyChanged,
+    this.plusIcon,
+    this.minusIcon,
     this.messageBuilder,
     this.validator,
     this.decoration = const QtyDecorationProps(),
@@ -166,6 +176,8 @@ class InputQty extends StatefulWidget {
     this.steps = 1,
     this.decimalPlaces = 0,
     this.onQtyChanged,
+    this.plusIcon,
+    this.minusIcon,
     this.messageBuilder,
     this.validator,
     this.decoration = const QtyDecorationProps(),
@@ -325,7 +337,6 @@ class _InputQtyState extends State<InputQty> {
                   : BorderSide.none),
       icon: widget.decoration.leadingWidget,
       isDense: widget.decoration.isDense,
-
       iconColor: widget.decoration.iconColor,
       counter: widget.messageBuilder != null ? _buildMessageWidget() : null,
       errorMaxLines: 2,
@@ -352,6 +363,7 @@ class _InputQtyState extends State<InputQty> {
                     onStart: startTimer,
                     onEndTime: endTimer,
                     orientation: widget.decoration.orientation,
+                    plusIcon: widget.plusIcon,
                     child: widget.decoration.plusBtn,
                   ),
                   BuildBtn(
@@ -363,6 +375,7 @@ class _InputQtyState extends State<InputQty> {
                     onStart: startTimer,
                     onEndTime: endTimer,
                     orientation: widget.decoration.orientation,
+                    minusIcon: widget.minusIcon,
                     child: widget.decoration.minusBtn,
                   ),
                 ];
@@ -385,6 +398,7 @@ class _InputQtyState extends State<InputQty> {
                   onStart: startTimer,
                   onEndTime: endTimer,
                   orientation: widget.decoration.orientation,
+                  minusIcon: widget.minusIcon,
                   child: widget.decoration.minusBtn,
                 );
             }
@@ -409,6 +423,7 @@ class _InputQtyState extends State<InputQty> {
                     orientation: widget.decoration.orientation,
                     onEndTime: endTimer,
                     onTap: limitTopState ? plus : null,
+                    plusIcon: widget.plusIcon,
                     child: widget.decoration.plusBtn,
                   ),
                   // const SizedBox(height: 2),
@@ -421,6 +436,7 @@ class _InputQtyState extends State<InputQty> {
                     orientation: widget.decoration.orientation,
                     onEndTime: endTimer,
                     qtyStyle: widget.decoration.qtyStyle,
+                    minusIcon: widget.minusIcon,
                     child: widget.decoration.minusBtn,
                   ),
                 ];
@@ -443,6 +459,7 @@ class _InputQtyState extends State<InputQty> {
                   onEndTime: endTimer,
                   qtyStyle: widget.decoration.qtyStyle,
                   orientation: widget.decoration.orientation,
+                  plusIcon: widget.plusIcon,
                   child: widget.decoration.plusBtn,
                 );
             }

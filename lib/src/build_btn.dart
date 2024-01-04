@@ -20,6 +20,12 @@ class BuildBtn extends StatelessWidget {
   /// default button color
   final Color btnColor;
 
+  /// default plus icon
+  final IconData? plusIcon;
+
+  /// default minus icon
+  final IconData? minusIcon;
+
   /// shape border
   final BorderShapeBtn borderShape;
 
@@ -43,6 +49,8 @@ class BuildBtn extends StatelessWidget {
     required this.isPlus,
     this.onTap,
     this.btnColor = Colors.teal,
+    this.plusIcon = Icons.add,
+    this.minusIcon = Icons.remove,
     this.child,
     this.qtyStyle = QtyStyle.classic,
     this.orientation,
@@ -82,7 +90,7 @@ class BuildBtn extends StatelessWidget {
                   padding:
                       EdgeInsets.symmetric(horizontal: isSqborder ? 8.0 : 2.0),
                   child: Icon(
-                    isPlus ? Icons.add : Icons.remove,
+                    isPlus ? plusIcon : minusIcon,
                     size: 18,
                     color: onTap == null ? Colors.grey : btnColor,
                   ),
@@ -113,7 +121,7 @@ class BuildBtn extends StatelessWidget {
                   padding:
                       EdgeInsets.symmetric(horizontal: isSqborder ? 8.0 : 2.0),
                   child: Icon(
-                    isPlus ? Icons.add : Icons.remove,
+                    isPlus ? plusIcon : minusIcon,
                     size: 18,
                     color: onTap == null ? Colors.grey : btnColor,
                   ),
@@ -141,7 +149,7 @@ class BuildBtn extends StatelessWidget {
                         isPlus: isPlus,
                         orientation: ButtonOrientation.horizontal)),
             child: child ??
-                Icon(isPlus ? Icons.add : Icons.remove,
+                Icon( isPlus ? plusIcon : minusIcon,
                     color: onTap == null ? Colors.grey : btnColor),
           ),
         );
