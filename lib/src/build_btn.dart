@@ -90,7 +90,7 @@ class BuildBtn extends StatelessWidget {
                   padding:
                       EdgeInsets.symmetric(horizontal: isSqborder ? 8.0 : 2.0),
                   child: Icon(
-                    isPlus ? plusIcon : minusIcon,
+                    isPlus ? plusIcon ?? Icons.add : minusIcon ?? Icons.remove,
                     size: 18,
                     color: onTap == null ? Colors.grey : btnColor,
                   ),
@@ -121,7 +121,7 @@ class BuildBtn extends StatelessWidget {
                   padding:
                       EdgeInsets.symmetric(horizontal: isSqborder ? 8.0 : 2.0),
                   child: Icon(
-                    isPlus ? plusIcon : minusIcon,
+                    isPlus ? plusIcon ?? Icons.add : minusIcon ?? Icons.remove,
                     size: 18,
                     color: onTap == null ? Colors.grey : btnColor,
                   ),
@@ -149,7 +149,7 @@ class BuildBtn extends StatelessWidget {
                         isPlus: isPlus,
                         orientation: ButtonOrientation.horizontal)),
             child: child ??
-                Icon( isPlus ? plusIcon : minusIcon,
+                Icon(   isPlus ? plusIcon ?? Icons.add : minusIcon ?? Icons.remove,
                     color: onTap == null ? Colors.grey : btnColor),
           ),
         );
